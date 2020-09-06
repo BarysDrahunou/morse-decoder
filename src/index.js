@@ -41,10 +41,10 @@ function decode(expr) {
     let result = [];
     for (let i = 0; i < expr.length; i += 10) {
         let arg = expr.substr(i, 10);
-        let key = "";
         if (arg === "**********") {
             result.push(" ")
         } else {
+            let key = "";
             for (let j = 0; j < 5; j++) {
                 if (arg.substr(8 - 2 * j, 2) === "11") key = "-" + key;
                 if (arg.substr(8 - 2 * j, 2) === "10") key = "." + key;
@@ -54,8 +54,6 @@ function decode(expr) {
     }
     return result.join("");
 }
-
-
 module.exports = {
     decode
 }
